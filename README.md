@@ -3,7 +3,9 @@ This mod changes back the 'Video Options' button to it's original state. To acce
 Video settings and press sodium video settings.
 
 Please go here to download the
-releases: https://www.curseforge.com/minecraft/mc-mods/better-sodium-video-settings-button/files
+releases: 
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/better-sodium-video-settings-button/files)
+[Modrinth](https://modrinth.com/mod/better-sodium-video-settings-button/versions)
 
 # Special thanks
 ### Translators
