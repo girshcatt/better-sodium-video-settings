@@ -1,6 +1,6 @@
-package com.limeshulkerbox.bsvsb.mixin;
+package dev.pieman.mixins;
 
-import net.fabricmc.loader.api.FabricLoader;
+import dev.architectury.platform.Platform;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.GameOptionsScreen;
 import net.minecraft.client.gui.screen.option.VideoOptionsScreen;
@@ -39,8 +39,8 @@ public abstract class MixinVideoOptionsScreen extends GameOptionsScreen {
     @Override
     protected void initFooter() {
         DirectionalLayoutWidget directionalLayoutWidget = this.layout.addFooter(DirectionalLayoutWidget.horizontal().spacing(8));
-        directionalLayoutWidget.add(new ButtonWidget.Builder(Text.translatable("text.bettersodiumvideosettings.sodiumvideosettings"), (button) -> {
-            if (FabricLoader.getInstance().isModLoaded("reeses-sodium-options")) {
+        directionalLayoutWidget.add(new ButtonWidget.Builder(Text.translatable("text.bsvsb.sodiumvideosettings"), (button) -> {
+            if (Platform.isModLoaded("reeses-sodium-options")) {
                 flashyReesesOptionsScreen();
             } else {
                 sodiumVideoOptionsScreen();
@@ -83,7 +83,11 @@ public abstract class MixinVideoOptionsScreen extends GameOptionsScreen {
     {
         if (SodiumOptionsGUIClass == null) {
             try {
-                SodiumOptionsGUIClass = Class.forName("me.jellysquid.mods.sodium.client.gui.SodiumOptionsGUI");
+                if (Integer.parseInt(Platform.getMod("sodium").getVersion().split("[.]")[1]) >= 6) {
+                    SodiumOptionsGUIClass = Class.forName("net.caffeinemc.mods.sodium.client.gui.SodiumOptionsGUI");
+                } else {
+                    SodiumOptionsGUIClass = Class.forName("me.jellysquid.mods.sodium.client.gui.SodiumOptionsGUI");
+                }
                 //Use declaredConstructors to get the correct constructor, will break when adding more constructors
                 //Also consider using the public static method (public static Screen createScreen(Screen currentScreen)) (https://github.com/CaffeineMC/sodium-fabric/blob/db7c77a0960c166e4177acbbabd892167fcd0271/src/main/java/net/caffeinemc/mods/sodium/client/gui/SodiumOptionsGUI.java#L124C5-L124C62)
                 //This will most likely also need a rework in the future, because the sodium gui is getting reworked (https://github.com/CaffeineMC/sodium-fabric/issues/2562#issuecomment-2180808114)

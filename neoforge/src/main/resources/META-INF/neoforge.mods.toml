@@ -1,0 +1,45 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "bsvsb"
+version = "${version}"
+displayName = "Better Sodium Video Settings Button"
+authors = "PiemanDev"
+description = '''
+Changes the Sodium Video settings back to the original, You can get to the Sodium Video Settings page via the Vanilla video settings page.
+'''
+#logoFile = ""
+
+[[dependencies.bsvsb]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.0,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.bsvsb]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.bsvsb]]
+modId = "sodium"
+type = "required"
+versionRange = "*"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.bsvsb]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.2,)"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[mixins]]
+config = "bsvsb.mixins.json"

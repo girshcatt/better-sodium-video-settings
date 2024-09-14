@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "dev.pieman.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "MixinVideoOptionsScreen",
+    "MixinOptionsScreen"
+    ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
